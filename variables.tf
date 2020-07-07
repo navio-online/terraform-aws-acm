@@ -35,8 +35,8 @@ variable "domain_name" {
 }
 
 variable "subject_alternative_names" {
-  description = "A list of domains that should be SANs in the issued certificate"
-  type        = list(string)
+  description = "A list of domains and their domain zone names that should be SANs in the issued certificate"
+  type        = list(map(string))
   default     = []
 }
 
@@ -46,8 +46,8 @@ variable "validation_method" {
   default     = "DNS"
 }
 
-variable "zone_id" {
-  description = "The ID of the hosted zone to contain this record."
+variable "zone_name" {
+  description = "The name of the hosted zone to contain this record."
   type        = string
   default     = ""
 }
